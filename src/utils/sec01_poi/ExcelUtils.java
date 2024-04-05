@@ -8,16 +8,25 @@ import java.util.Date;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.ooxml.POIXMLProperties;
+import org.apache.poi.ss.usermodel.BorderStyle;
+import org.apache.poi.ss.usermodel.CellStyle;
+import org.apache.poi.ss.usermodel.FillPatternType;
+import org.apache.poi.ss.usermodel.Font;
+import org.apache.poi.ss.usermodel.HorizontalAlignment;
+import org.apache.poi.ss.usermodel.IndexedColors;
 import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.VerticalAlignment;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+/**
+ * 엑셀파일 관련 utils
+ */
 public class ExcelUtils {
 
 	public static final String MAKER_NAME = "defectio";
-	public static final String FILENAME = "storage";
+	public static final String FILENAME = "product";
 	public static final String FILE_DIVIDER = "_";
 	public static final String XLS_EXTENSION = ".xls";
 	public static final String XLSX_EXTENSION = ".xlsx";
@@ -190,6 +199,27 @@ public class ExcelUtils {
 		}
 		
 		return sheets;
+	}
+	
+	/**
+	 * 가운데 정렬 default CellStyle
+	 * @param cellStyle
+	 * @param align
+	 * @param isWeight
+	 */
+	public static void setDefaultCellStyle(Workbook wb, CellStyle cellStyle, HorizontalAlignment align, boolean isWeight) {
+		Font baseFont = wb.createFont();
+		baseFont.setFontName("맑은 고딕");
+		baseFont.setFontHeightInPoints((short) 11);
+		baseFont.setBold(isWeight);
+
+		cellStyle.setFont(baseFont);
+		cellStyle.setVerticalAlignment(VerticalAlignment.CENTER); //수직 가운데 정렬
+		cellStyle.setAlignment(align);  // 수평 가운데 정렬
+		cellStyle.setBorderBottom(BorderStyle.THIN);
+		cellStyle.setBorderTop(BorderStyle.THIN);
+		cellStyle.setBorderLeft(BorderStyle.THIN);
+		cellStyle.setBorderRight(BorderStyle.THIN);
 	}
 	
 }
