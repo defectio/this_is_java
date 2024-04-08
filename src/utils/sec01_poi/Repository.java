@@ -65,15 +65,16 @@ public class Repository {
 	 * @return
 	 */
 	private String makeRandomDate(String year) {
-		String[] month = {"01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"};
-		String[] day = {"31", "29", "31", "30", "31", "30", "31", "31", "30", "31", "30", "31"};
+		String[] months = {"01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"};
+		int[] days = {31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+		int ranMonth = ran.nextInt(12);
 		
 		StringBuffer date = new StringBuffer();
 		date.append(year);
 		date.append("-");
-		date.append(month[ran.nextInt(12)]);
+		date.append(months[ranMonth]);
 		date.append("-");
-		date.append(day[ran.nextInt(12)]);
+		date.append(ran.nextInt(days[ranMonth]));
 		
 		return date.toString();
 	}
