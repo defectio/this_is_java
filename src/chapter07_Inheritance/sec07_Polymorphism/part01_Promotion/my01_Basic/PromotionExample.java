@@ -18,31 +18,38 @@ public class PromotionExample {
 	
 	/** 
 	 * 상속관계 -> 바로 위의 부모가 아니더라도 상속 계층에서 상위 타입이라면 자동 타입 변환이 일어날 수 있다.
-	 *  	 A
+	 *  	A
 	 *  B		C
 	 *  D		E
 	 */
 	public static void main(String[] args) {
-		//A의 하위 객체들 생성
+
 		B b = new B();
 		C c = new C();
 		D d = new D();
 		E e = new E();		
 		
-		//최상위 클래스에 자식객체 대입 -> 자동 타입 변환
+		/**
+		 * 자동타입변환 : 최상위 클래스에 자식객체 대입
+		 */
 		A a1 = b;
 		A a2 = c;
 		A a3 = d;
 		A a4 = e;
 		
-		//부모클래스에 자식객체 대입 -> 자동 타입 변환
+		/**
+		 * 자동타입변환 : 부모클래스에 자식객체 대입
+		 */
 		B b1 = d;
 		C c1 = e;
 
-		/* 컴파일 에러 : 상속 관계에 있지 않은 클래스 사이에는 자동 타입변환이 발생하지 않는다. */
-		//B b3 = e;
-		//C c2 = d;
+		/**
+		 * 컴파일에러 : 상속 관계에 있지 않은 클래스 사이에는 자동 타입변환이 발생하지 않는다.
+		 *   - Type mismatch: cannot convert from E to B
+		 *   - Type mismatch: cannot convert from E to B
+		 */
+		// B b3 = e;
+		// C c2 = d;
 	}
 	
-} //end class
-
+}
