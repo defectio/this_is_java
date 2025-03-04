@@ -14,7 +14,7 @@ public class A {
 	}
 	
 	/**
-	 * protected 메소드 -> 자식클래스에서 오버라이딩 불가능
+	 * protected 메소드
 	 */
 	protected void method() {
 		System.out.println("A's protected method");
