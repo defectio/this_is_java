@@ -15,17 +15,16 @@ public class Car {
 	Tire backLeftTire = new Tire("뒤왼쪽", 3);
 	Tire backRightTire = new Tire("뒤오른쪽", 4);
 	
-	//생성자
-	
-	//메소드
-	int run() {
+	public int run() {
 		System.out.println("[자동차가 달립니다.]");
 		/**
-		 * tire가 교체된 이후에는(자식클래스가 부모 타입에 대입되면, 자동타입변환되면)
+		 * tire가 교체된 이후에는(=자식클래스가 부모 타입에 대입되면, =자동타입변환되면)
 		 *  (1) 부모의 필드, 메소드에만 접근 가능
-		 *  (2) 오버라이딩된 자식 메소드 호출
+		 *  (2) 오버라이딩된 자식 메소드 호출 가능
+		 *  
+		 *  즉, roll() 메소드는 자식클래스(HanKookTire, KumhoTire)에서 재정의 되어 있으므로 
+		 *  자동타입변환 이후에는 자식 클래스의 roll() 메소드 호출됨.
 		 */
-		//즉, roll() 메소드는 자식 클래스에서 재정의 되어 있으므로 자동타입변환 이후에는 자식 클래스의 roll() 메소드 호출됨.
 		
 		if (frontLeftTire.roll() == false) {
 			stop();
@@ -50,4 +49,4 @@ public class Car {
 		System.out.println("[자동차가 멈춥니다.]");
 	}
 
-} //end class
+}
