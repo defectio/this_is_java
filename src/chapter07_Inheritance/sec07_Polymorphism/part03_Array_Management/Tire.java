@@ -1,19 +1,21 @@
 package chapter07_Inheritance.sec07_Polymorphism.part03_Array_Management;
 
 public class Tire {
-	//필드
+
 	public int maxRotation;     				//최대회전수(타이어 수명)
 	public int accumulatedRotation;		//누적회전수
 	public String location;       				//타이어의 위치
 
-	//생성자
 	public Tire() {}
 	public Tire(String location, int maxRotation) {
 		this.location = location;
 		this.maxRotation = maxRotation;
 	}
 
-	//메소드 -> 타이어를 한바퀴 굴리고, 수명이 남아 있는지 없는지를 리턴
+	/**
+	 * 타이어를 한바퀴 굴리고, 수명이 남아 있는지 없는지를 리턴
+	 * @return
+	 */
 	public boolean roll() {
 		++accumulatedRotation;
 		if (accumulatedRotation < maxRotation) {
@@ -23,7 +25,6 @@ public class Tire {
 			System.out.println("*** " + location + " Tire 펑크 ***");
 			return false;
 		}
-	} // end roll()
+	}
 	
-} //end class
-
+}
